@@ -1,8 +1,8 @@
+const API_URL = process.env.REACT_APP_API_URL
+
 export const getCharactersByName = async name => {
   try {
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character/?name=${name}`
-    )
+    const response = await fetch(`${API_URL}/character/?name=${name}`)
     const data = await response.json()
     return data.results
   } catch (error) {
@@ -12,10 +12,9 @@ export const getCharactersByName = async name => {
 }
 
 export const getCharacterById = async id => {
+  console.log("API_URL", API_URL)
   try {
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character/${id}`
-    )
+    const response = await fetch(`${API_URL}/character/${id}`)
     const data = await response.json()
     return data
   } catch (error) {
